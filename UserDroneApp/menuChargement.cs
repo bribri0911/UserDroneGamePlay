@@ -63,7 +63,7 @@ namespace UserDroneApp
                 //Accueil frm = new Accueil();
                 //frm.Show();
 
-                this.Close();
+                this.Hide();
 
             }
 

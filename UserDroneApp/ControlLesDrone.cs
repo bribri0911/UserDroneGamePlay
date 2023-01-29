@@ -14,12 +14,24 @@ using System.Resources;
 
 namespace UserDroneApp
 {
-    public partial class Control : Form
+    public partial class ControlLesDrone : Form
     {
-        public Control()
+        public ControlLesDrone()
         {
             InitializeComponent();
+
+            lblSide.Text = (trckSide.Value/100f).ToString();
+            lbldirection.Text = (trckdirection.Value/100f).ToString();
+            lblRotation.Text = (trckRotation.Value/100f).ToString();
+            lblup.Text = (trckUp.Value/100f).ToString();
+
+            string message = $"Rcspeed {lblSide.Text} {lbldirection.Text} {lblRotation.Text} {lblup.Text}";
+
+            SendMessageToTarget(message);
+
         }
+
+
 
         public void SendMessageToTarget(string message)
         {
@@ -93,14 +105,18 @@ namespace UserDroneApp
 
         private void Control_Load(object sender, EventArgs e)
         {
-            btnKick = new Button[1];
+            btnKick = new Button[]
+            {
+                new Button()
+            };
+
             btnKick[0].Visible = true;
             btnKick[0].Name = "btn_kick";
             btnKick[0].BackColor = Color.Aquamarine;
-            btnKick[0].Top = 10;
+            btnKick[0].Top = this.Height - 50;
             btnKick[0].Left = this.Width - 100;
-            btnKick[0].Width = 80;
-            btnKick[0].Height = 30;
+            btnKick[0].Width = 85;
+            btnKick[0].Height = 35;
             btnKick[0].Text = "Quittez";
 
             this.Controls.Add(btnKick[0]);
@@ -112,5 +128,48 @@ namespace UserDroneApp
         {
             Application.Exit();
         }
+
+        private void trckSide_Scroll(object sender, EventArgs e)
+        {
+            float valeur = trckSide.Value / 100f;
+            lblSide.Text = valeur.ToString();
+
+            string message = $"Rcspeed {lblSide.Text} {lbldirection.Text} {lblRotation.Text} {lblup.Text}";
+
+            SendMessageToTarget(message);
+        }
+
+        private void trckdirection_Scroll(object sender, EventArgs e)
+        {
+            float valeur = trckdirection.Value / 100f;
+            lbldirection.Text = valeur.ToString();
+
+            string message = $"Rcspeed {lblSide.Text} {lbldirection.Text} {lblRotation.Text} {lblup.Text}";
+
+            SendMessageToTarget(message);
+        }
+
+        private void trckRotation_Scroll(object sender, EventArgs e)
+        {
+            float valeur = trckRotation.Value / 100f;
+            lblRotation.Text = $"{valeur}";
+
+            string message = $"Rcspeed {lblSide.Text} {lbldirection.Text} {lblRotation.Text} {lblup.Text}";
+
+            SendMessageToTarget(message);
+        }
+
+        private void trckUp_Scroll(object sender, EventArgs e)
+        {
+            float valeur = trckUp.Value / 100f;
+            lblup.Text = valeur.ToString();
+
+            string message = $"Rcspeed {lblSide.Text} {lbldirection.Text} {lblRotation.Text} {lblup.Text}";
+
+            SendMessageToTarget(message);
+        }
+
+
+
     }
 }

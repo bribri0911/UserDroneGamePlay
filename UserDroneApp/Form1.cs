@@ -130,6 +130,7 @@ namespace UserDroneApp
                 menuChargement frm = new menuChargement();
                 frm.Show();
 
+                
             }
             else
             {
@@ -220,18 +221,7 @@ namespace UserDroneApp
 
         private void txtPort_TextChanged(object sender, EventArgs e)
         {
-            if(int.TryParse(txtPort.Text, out int Port))
-            {
-                if(port < 2000)
-                {
-                    txtPort.Text = "2000";
-                }
-                if(port > 2500)
-                {
-                    txtPort.Text = "2500";
-                }
-            }
-            else
+            if(!int.TryParse(txtPort.Text, out int Port))
             {
                 txtPort.Text = "2508";
             }
@@ -241,13 +231,13 @@ namespace UserDroneApp
 
         private void timergeneral_Tick(object sender, EventArgs e)
         {
+
             if (Pong != "")
             {
                 Stop = true;
                 Pong = "";
                 timergeneral.Enabled = false;
                 indexGeneral = 0;
-                MessageBox.Show("Je suis la");
             }
             else
             {
@@ -263,10 +253,13 @@ namespace UserDroneApp
 
             if(Stop)
             {
-                MessageBox.Show("Je suis la 2");
-                Control frm = new Control();
-                frm.Show();
-                this.Hide();
+                timergeneral.Enabled = false;
+
+
+                ControlLesDrone formDrone = new ControlLesDrone();
+                formDrone.Show();
+
+                this.Close();
             }
 
 

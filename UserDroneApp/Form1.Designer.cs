@@ -57,7 +57,7 @@ namespace UserDroneApp
             this.txtIP.Name = "txtIP";
             this.txtIP.Size = new System.Drawing.Size(323, 22);
             this.txtIP.TabIndex = 0;
-            this.txtIP.Text = "192.168.1.104";
+            this.txtIP.Text = "192.168.0.36";
             // 
             // label1
             // 

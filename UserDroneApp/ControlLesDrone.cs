@@ -71,6 +71,10 @@ namespace UserDroneApp
                 new Button()
             };
 
+            
+            lblInfo.Text = "Button A = kill the monster\r\nButton B = Spawn the monster\r\nButton X = Revive all player";
+           
+
             btnKick[0].Visible = true;
             btnKick[0].Name = "btn_kick";
             btnKick[0].BackColor = Color.Aquamarine;
@@ -140,31 +144,33 @@ namespace UserDroneApp
 
         private void ControlXbox_Tick(object sender, EventArgs e)
         {
-            string message = "";
+            //string message = "";
 
             if (Gamepad.Gamepads.Count > 0)
             {
                 Controller = Gamepad.Gamepads.First();
 
+
+
                 float LeftRight = 0, DownUp = 0, RotateLeftRight = 0, backFrond = 0;
 
                 GamepadReading Reading = Controller.GetCurrentReading();
 
-                LeftRight = (float)Reading.LeftThumbstickX;
-                DownUp = (float)Reading.RightThumbstickY;
-                RotateLeftRight = (float)Reading.RightThumbstickX;
-                backFrond = (float)Reading.LeftThumbstickY;
+                LeftRight = (float)Reading.LeftThumbstickX * ((float)trckSide.Value / 100);
+                DownUp = (float)Reading.RightThumbstickY * ((float)trckdirection.Value / 100);
+                RotateLeftRight = (float)Reading.RightThumbstickX * ((float)trckRotation.Value / 100);
+                backFrond = (float)Reading.LeftThumbstickY * ((float)trckUp.Value / 100);
 
-                //Console.Out.WriteLine( ((float)Reading.LeftThumbstickX));
+                Console.Out.WriteLine( ((float)Reading.LeftThumbstickX));
                 //Console.Out.WriteLine((float) Reading.LeftThumbstickY);
                 //Console.Out.WriteLine((float) Reading.RightThumbstickX);
-                Console.Out.WriteLine((float) Reading.RightThumbstickY);
+                //Console.Out.WriteLine((float) Reading.RightThumbstickY);
+                Console.Out.WriteLine(LeftRight);
 
-
-                if (LeftRight <= 0.03 && LeftRight >= -0.03) LeftRight = 0;
-                if (DownUp <= 0.03 && DownUp >= -0.03) DownUp = 0;
-                if (RotateLeftRight <= 0.03 && RotateLeftRight >= -0.03) RotateLeftRight = 0;
-                if (backFrond <= 0.03 && backFrond >= -0.03) backFrond = 0;
+                if (LeftRight <= 0.05 && LeftRight >= -0.05) LeftRight = 0;
+                if (DownUp <= 0.05 && DownUp >= -0.05) DownUp = 0;
+                if (RotateLeftRight <= 0.05 && RotateLeftRight >= -0.05) RotateLeftRight = 0;
+                if (backFrond <= 0.05 && backFrond >= -0.05) backFrond = 0;
 
 
                 string commande = string.Format("Rc {0} {1} {2} {3}", LeftRight, backFrond, RotateLeftRight, DownUp);
@@ -174,6 +180,16 @@ namespace UserDroneApp
                 {
                     SendMessageToTarget(commande);
                 }
+                string message = "";
+
+                if (Reading.Buttons == GamepadButtons.A) message = "cmdadmin:monsterkill";
+                if (Reading.Buttons == GamepadButtons.B) message = "cmdadmin:monsterspawn ";
+                if (Reading.Buttons == GamepadButtons.X) message = "cmdadmin:reviveallplayer";
+
+                SendMessageToTarget(message);
+
+                
+                
 
                 LeftRight = 0;
                 backFrond = 0;

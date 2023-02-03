@@ -51,6 +51,7 @@ namespace UserDroneApp
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.ControlXbox = new System.Windows.Forms.Timer(this.components);
+            this.lblInfo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -259,11 +260,21 @@ namespace UserDroneApp
             this.ControlXbox.Enabled = true;
             this.ControlXbox.Tick += new System.EventHandler(this.ControlXbox_Tick);
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(1551, 300);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(46, 17);
+            this.lblInfo.TabIndex = 6;
+            this.lblInfo.Text = "label2";
+            // 
             // ControlLesDrone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -314,5 +325,6 @@ namespace UserDroneApp
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer ControlXbox;
+        private System.Windows.Forms.Label lblInfo;
     }
 }

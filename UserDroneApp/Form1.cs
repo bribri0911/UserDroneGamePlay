@@ -48,7 +48,6 @@ namespace UserDroneApp
             sock.SendTo(send_buffer, endPoint);
         }
 
-
         public void ChoisirCouleur(string LaCouleur)
         {
             switch(LaCouleur)
@@ -137,12 +136,6 @@ namespace UserDroneApp
                 MessageBox.Show("Remplissez correctement toutes les cases", "Erreur !!!", MessageBoxButtons.OK);
             }
         }
-
-
-
-
-
-
 
         private void txtR_TextChanged(object sender, EventArgs e)
         {
@@ -243,8 +236,10 @@ namespace UserDroneApp
             {
                 if (indexGeneral > 105)
                 {
+                    Stop = true;
                     timergeneral.Enabled = false;
-                    MessageBox.Show("Verifiez que vous soyez sur le meme résaux, que vous ayez ecrit correctement l'addresse IP de l'hote et que vous soyez sur le meme port.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Verifiez que vous soyez sur le meme résaux, que vous ayez ecrit correctement l'addresse IP de l'hote et que vous soyez sur le meme port.
+                    //MessageBox.Show("Check that you're on the same internet connection as your teacher, that the host IP is correct, and that you are on the same port. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     indexGeneral = 0;
                     //MessageBox.Show("Vous avez été déconnecter du serveur", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

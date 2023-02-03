@@ -64,9 +64,9 @@ namespace UserDroneApp
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 17);
+            this.label1.Size = new System.Drawing.Size(95, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Adresse IP Prof : ";
+            this.label1.Text = "Teacher\'s IP :";
             // 
             // boxinfo
             // 
@@ -96,7 +96,7 @@ namespace UserDroneApp
             this.btnPortChanger.Name = "btnPortChanger";
             this.btnPortChanger.Size = new System.Drawing.Size(323, 27);
             this.btnPortChanger.TabIndex = 13;
-            this.btnPortChanger.Text = "Changer le port";
+            this.btnPortChanger.Text = "change port";
             this.btnPortChanger.UseVisualStyleBackColor = true;
             this.btnPortChanger.Click += new System.EventHandler(this.btnPortChanger_Click);
             // 
@@ -145,12 +145,12 @@ namespace UserDroneApp
             // 
             this.cmbCouleur.FormattingEnabled = true;
             this.cmbCouleur.Items.AddRange(new object[] {
-            "vert",
-            "jaune",
-            "bleu",
+            "green",
+            "yellow",
+            "blue",
             "cyan",
-            "rouge",
-            "gris"});
+            "red",
+            "grey"});
             this.cmbCouleur.Location = new System.Drawing.Point(133, 79);
             this.cmbCouleur.Name = "cmbCouleur";
             this.cmbCouleur.Size = new System.Drawing.Size(144, 24);
@@ -162,9 +162,9 @@ namespace UserDroneApp
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(9, 82);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 17);
+            this.label4.Size = new System.Drawing.Size(53, 17);
             this.label4.TabIndex = 6;
-            this.label4.Text = "couleur : ";
+            this.label4.Text = "Color : ";
             // 
             // txtPort
             // 
@@ -196,9 +196,9 @@ namespace UserDroneApp
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 152);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.Size = new System.Drawing.Size(78, 17);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Pseudo :";
+            this.label2.Text = "Nickname :";
             // 
             // btnLancer
             // 
@@ -206,7 +206,7 @@ namespace UserDroneApp
             this.btnLancer.Name = "btnLancer";
             this.btnLancer.Size = new System.Drawing.Size(456, 56);
             this.btnLancer.TabIndex = 3;
-            this.btnLancer.Text = "rejoindre la partie";
+            this.btnLancer.Text = "Join game";
             this.btnLancer.UseVisualStyleBackColor = true;
             this.btnLancer.Click += new System.EventHandler(this.btnLancer_Click);
             // 
